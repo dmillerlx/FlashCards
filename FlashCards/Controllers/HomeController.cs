@@ -14,5 +14,12 @@ namespace FlashCards.Controllers
 
             return View();
         }
+
+        public ActionResult AddQuestions()
+        {
+            ViewBag.Title = "Add Questions";
+
+            return View();
+        }
     }
 }
