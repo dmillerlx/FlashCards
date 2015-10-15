@@ -30,8 +30,13 @@ namespace FlashCards.API
         }
 
         [HttpPost]
-        public bool Post([FromBody]string questionList)
+        public bool Post(string addQuestionPassword, [FromBody]string questionList)
         {
+
+            if (addQuestionPassword != "fred.51")
+                return false;
+
+
             //Parse incoming list into entries
 
             List<FlashCardEntry> entries = ParseData(questionList);
@@ -223,8 +228,12 @@ namespace FlashCards.API
 
         }
 
-        public bool Delete(int id)
+        public bool Delete(int id, [FromBody]string deleteQuestionPassword)
         {
+
+            if (deleteQuestionPassword != "fred.51")
+                return false;
+
             try
             {
                 using (var db = new FlashCardsDb())

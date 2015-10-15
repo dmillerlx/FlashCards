@@ -47,8 +47,9 @@
         $.ajax({
             url: "/api/FlashCards/" + currentQuestionID,
             method: "DELETE",
-            data: null,
-            dataType: "json",
+            contentType: "application/x-www-form-urlencoded; charset=utf-8",
+            //dataType: "json",
+            data: "=" + $("#deleteQuestionPassword").val(),
             success: function (entry) {
                 alert("Successfully deleted");
 
@@ -67,21 +68,12 @@
     $("#submitQuestionList").click(function (evt) {
         evt.preventDefault();
 
-        //var questionData = $("#questionList").serialize();// { "data": $("#questionList").val() };
-        debugger;
         var questionData = { "questionList": JSON.stringify($("#questionList").val()) };
-
-        //$.post("/api/FlashCards", questionData).done(function () {
-        //    $("#questionListStatus").html("Done");
-        //}).fail(function (jqXHR, textStatus, error) {
-        //    console.log("Post failed:" + error);
-        //    $("#questionListStatus").html(error);
-        //});
 
         $.ajax({
             method: "POST",
             processData: false,
-            url: "/api/FlashCards",
+            url: "/api/FlashCards/"+$("#addQuestionPassword").val(),
             //contentType: "application/json",
             contentType: "application/x-www-form-urlencoded; charset=utf-8",
             //data: JSON.stringify(questionData)
