@@ -30,15 +30,14 @@ namespace FlashCards.API
         }
 
         [HttpPost]
+        
         public bool Post(string addQuestionPassword, [FromBody]string questionList)
         {
-
             if (addQuestionPassword != "fred.51")
                 return false;
 
 
             //Parse incoming list into entries
-
             List<FlashCardEntry> entries = ParseData(questionList);
             
             //Add new entries into the datbase

@@ -73,7 +73,7 @@
         $.ajax({
             method: "POST",
             processData: false,
-            url: "/api/FlashCards/"+$("#addQuestionPassword").val(),
+            url: "/api/FlashCards?addQuestionPassword="+$("#addQuestionPassword").val(),
             //contentType: "application/json",
             contentType: "application/x-www-form-urlencoded; charset=utf-8",
             //data: JSON.stringify(questionData)
